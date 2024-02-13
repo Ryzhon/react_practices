@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import NoteEditor from './NoteEditor';
+import Note from './Note';
 
 const App = () => {
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
@@ -41,13 +42,7 @@ const App = () => {
     <div className="app-container">
       <div className="note-list">
         {notes.map((note) => (
-          <div
-            key={note.id}
-            className={`note ${note.id === activeNote ? 'active' : ''}`}
-            onClick={() => setActiveNote(note.id)}
-          >
-            {note.content.split('\n')[0]}
-          </div>
+          <Note key={note.id} note={note} activeNote={activeNote} setActiveNote={setActiveNote} />
         ))}
         <button onClick={createNewNote} className="add-note">
           +
