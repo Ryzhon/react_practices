@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
-import NoteEditor from './NoteEditor';
-import Note from './Note';
-import AuthButton from './AuthButton';
+import './styles/App.css';
+import NoteEditor from './components/NoteEditor';
+import Note from './components/Note';
+import AuthButton from './components/AuthButton';
 
 const NoteApp = () => {
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
