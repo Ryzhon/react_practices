@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import NoteEditor from './NoteEditor';
 import Note from './Note';
+import { AuthProvider } from './AuthContext';
+import AuthButton from './AuthButton';
 
-const App = () => {
+const AppInner = () => {
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
   const [activeNote, setActiveNote] = useState(null);
 
@@ -49,8 +51,15 @@ const App = () => {
         </button>
       </div>
       {activeNote && <NoteEditor key={activeNote} note={getActiveNote()} saveNote={saveNote} deleteNote={deleteNote} />}
+      <AuthButton />
     </div>
   );
 };
+
+const App = () => (
+  <AuthProvider>
+    <AppInner />
+  </AuthProvider>
+);
 
 export default App;
