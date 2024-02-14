@@ -7,11 +7,11 @@ const AuthButton = () => {
   return (
     <div>
       {!isLoggedIn ? (
-        <button onClick={login} className="login-button">
+        <button onClick={login}>
           ログイン
         </button>
       ) : (
-        <button onClick={logout} className="logout-button">
+        <button onClick={logout}>
           ログアウト
         </button>
       )}
